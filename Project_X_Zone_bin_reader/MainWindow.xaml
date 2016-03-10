@@ -5,10 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Project_X_Zone_bin_reader"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="550" Width="525">
     <Grid>
         <TabControl>
-
+            <TabItem Name="ItemTab" Header="Items">
+                <DockPanel LastChildFill="True">
+                    <StackPanel Orientation="Vertical" DockPanel.Dock="Top">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="OpenItemFileButton" Click="OpenItemFileButton_Click">Open Item bin File</Button>
+                            <TextBlock Name="ItemFilePathTextBlock"></TextBlock>
+                        </StackPanel>
+                        <TextBox Name="ItemBinPreviewTextBox" Height="60" TextWrapping="WrapWithOverflow" VerticalScrollBarVisibility="Auto"></TextBox>
+                        <TextBox Name="ItemSeparatorTextBox">FFFCF003</TextBox>
+                    </StackPanel>
+                    <DataGrid Name="ItemDataGrid" DockPanel.Dock="Bottom" ItemsSource="{Binding}" AutoGenerateColumns="True" HeadersVisibility="All" GridLinesVisibility="Horizontal" ColumnWidth="Auto" Panel.ZIndex="1"/>
+                </DockPanel>
+            </TabItem>
         </TabControl>
     </Grid>
 </Window>
